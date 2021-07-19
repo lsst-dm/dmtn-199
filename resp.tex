@@ -1,11 +1,17 @@
 \section{Response to the requirements}\label{sec:resp}
 
 There is an implication that we should follow \citeds{NIST.SP.800-171}, as for any standard that is open to some interpretation.
-\newreqtype{NIST}
-\reqsimp
-{
-Rubin project shall provide a document  showing how it intends to comply with NIST 800-171.
-}
+We will have to show how ew comply to the standard.
+This may take the form of a compliance matrix as shown in \appref{sec:compliance}.
+
+We assume this applies to CUI, which we interpret as the embargoed image data hence it applies to Prompt Processing, the embargoed data store(s) and the summit in Chile. It does snot apply to DACs nor the actual alert stream.
+
+We note SLAC should comply with \citeds{FIPS200}, FIPS.99, 800-53 and 800-60 as a Federal agency.
+We assume our NIST 800-171  will also apply to SLAC since NIST 800-171 is derived from exactly these documents.
+
+From Section 2.1 of \citeds{NIST.SP.800-171} we note the The confidentiality impact value for the data  is no less than moderate.
+So we may assume our \citeds{FIPS200} security category would be \{ moderate, low, low\}\footnote{\{confidentiality, availability,integrity\}}.
+
 
 \input{1encrypt}
 \input{2firewalls}

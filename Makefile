@@ -1,6 +1,7 @@
 DOCTYPE = DMTN
 DOCNUMBER = 199
 DOCNAME = $(DOCTYPE)-$(DOCNUMBER)
+GSHEET = 1o1jbFP6tHSAzvg_OsNI0-qmzIIQGbe2_rjjM94xic8w
 
 tex = $(filter-out $(wildcard *acronyms.tex) , $(wildcard *.tex))
 
@@ -46,3 +47,7 @@ meta.tex: Makefile .FORCE
 	printf '\\newcommand{\\lsstDocNum}{$(DOCNUMBER)}\n' >>$@
 	printf '\\newcommand{\\vcsRevision}{$(GITVERSION)$(GITDIRTY)}\n' >>$@
 	printf '\\newcommand{\\vcsDate}{$(GITDATE)}\n' >>$@
+
+
+compliance.tex: .FORCE
+	makeTablesFromGoogle.py ${GSHEET}  matrix\!A1:E
