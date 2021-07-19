@@ -22,11 +22,11 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install "lander<2.0.0"
 
-      - name: Login to Docker Hub
-        uses: docker/login-action@v1
-        with:
-          username: sqrereadonly
-          password: ${{ secrets.DOCKERHUB_SQREREADONLY_TOKEN }}
+      - #name: Login to Docker Hub
+        #uses: docker/login-action@v1
+          #with:
+          #username: sqrereadonly
+          #password: ${{ secrets.DOCKERHUB_SQREREADONLY_TOKEN }}
 
       - name: TeX build
         run: |
@@ -39,5 +39,7 @@ jobs:
           LTD_USERNAME: ${{ secrets.LTD_USERNAME }}
         run: |
           #lander --upload --pdf DMTN-199.pdf --lsstdoc DMTN-199.tex --ltd-product dmtn-199
+          git config user.name github-actions
+          git config user.email github-actions@github.com
           git commit -m " Build of doc from github action " DMTN-199.pdf
           git push
