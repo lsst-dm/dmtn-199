@@ -1,0 +1,9 @@
+% bibentry template for lsst.bib in https://github.com/lsst/lsst-texmf/blob/master/texmf/bibtex/bib/lsst.bib
+
+@DocuShare{DMTN-199,
+   author = { William O'Mullane },
+    title = {CUI Rubin Observatory Data Security Standards  Response},
+     year = 2021,
+    month = Jul,
+   handle = {DMTN-199},
+      url = {https://dmtn-199.lsst.io } }
