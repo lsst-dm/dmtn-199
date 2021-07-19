@@ -32,10 +32,12 @@ jobs:
         run: |
           docker run --rm -v `pwd`:/workspace -w /workspace lsstsqre/lsst-texmf:latest sh -c 'make'
 
-      - name: Landing page upload
+      - name: Diabled Landing page upload on this as its nt public
         if: ${{ github.event_name == 'push' }}
         env:
           LTD_PASSWORD: ${{ secrets.LTD_PASSWORD }}
           LTD_USERNAME: ${{ secrets.LTD_USERNAME }}
         run: |
-          lander --upload --pdf DMTN-199.pdf --lsstdoc DMTN-199.tex --ltd-product dmtn-199
+          #lander --upload --pdf DMTN-199.pdf --lsstdoc DMTN-199.tex --ltd-product dmtn-199
+          git commit -m " Build of doc from github action " DMTN-199.pdf
+          git push
