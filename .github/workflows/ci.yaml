@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: 3.9
 
-      - name: Secrets for google
+      - name: Set up google
         env:
           CLIENT: ${{ secrets.CLIENT }}
           TOKEN_PASSPHRASE: ${{ secrets.TOKEN_PASSPHRASE }}
