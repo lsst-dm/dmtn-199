@@ -24,11 +24,11 @@ jobs:
 
       - name: Secrets for google
         env:
-           CLIENT: ${{ secrets.CLIENT }}
-           TOKEN_PASSPHRASE: ${{ secrets.TOKEN_PASSPHRASE }}
+          CLIENT: ${{ secrets.CLIENT }}
+          TOKEN_PASSPHRASE: ${{ secrets.TOKEN_PASSPHRASE }}
         run: |
-           echo $CLIENT >> client_secret.json
-           ./decrypt_secret.sh
+          echo $CLIENT >> client_secret.json
+          ./decrypt_secret.sh
 
 
       - name: TeX build
