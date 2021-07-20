@@ -1,0 +1,39 @@
+
+name: Update Comliance
+on: workflow_dispatch
+
+jobs:
+   generate:
+     runs-on: ubuntu-latest
+     steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # full history for metadata
+          submodules: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: make tables from google
+          env:
+             CLIENT: ${{ secrets.CLIENT }}
+             TOKEN_PASSPHRASE: ${{ secrets.TOKEN_PASSPHRASE }}
+          run: |
+             echo $CLIENT >> client_secret.json
+             ./decrypt_secret.sh
+             docker run --rm -v `pwd`:/workspace -w /workspace lsstsqre/lsst-texmf:latest sh -c 'make compliance.tex'
+
+      - name: TeX build
+        run: |
+          docker run --rm -v `pwd`:/workspace -w /workspace lsstsqre/lsst-texmf:latest sh -c 'make'
+ 
+      - name: Create commit
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git commit -m "Update from google." compliance.tex DMTN-199.pdf
+          git push
+
+
