@@ -22,6 +22,14 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install "lander<2.0.0"
 
+      - name: Secrets for google
+        env:
+           CLIENT: ${{ secrets.CLIENT }}
+           TOKEN_PASSPHRASE: ${{ secrets.TOKEN_PASSPHRASE }}
+        run: |
+           echo $CLIENT >> client_secret.json
+           ./decrypt_secret.sh
+
 
       - name: TeX build
         run: |
