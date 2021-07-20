@@ -49,5 +49,5 @@ meta.tex: Makefile .FORCE
 	printf '\\newcommand{\\vcsDate}{$(GITDATE)}\n' >>$@
 
 
-compliance.tex: .FORCE
-	makeTablesFromGoogle.py ${GSHEET}  matrix\!A1:E
+tables: .FORCE
+	cd tables; makeTablesFromGoogle.py ${GSHEET}  matrix\!A1:E  cost\!A1:E

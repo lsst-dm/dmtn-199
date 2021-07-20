@@ -22,7 +22,7 @@ jobs:
           CLIENT: ${{ secrets.CLIENT }}
           TOKEN_PASSPHRASE: ${{ secrets.TOKEN_PASSPHRASE }}
         run: |
-          echo $CLIENT >> client_secret.json
+          echo $CLIENT >> tables/client_secret.json
           ./decrypt_secret.sh
 
 
@@ -35,5 +35,5 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git commit -m " Build of doc from github action " DMTN-199.pdf
+          git commit -m " Build of doc from github action " DMTN-199.pdf tables
           git push

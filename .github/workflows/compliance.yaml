@@ -21,7 +21,7 @@ jobs:
           CLIENT: ${{ secrets.CLIENT }}
           TOKEN_PASSPHRASE: ${{ secrets.TOKEN_PASSPHRASE }}
         run: |
-          echo $CLIENT >> client_secret.json
+          echo $CLIENT >> tables/client_secret.json
           ./decrypt_secret.sh
           docker run --rm -v `pwd`:/workspace -w /workspace lsstsqre/lsst-texmf:latest sh -c 'make compliance.tex'
 
@@ -33,7 +33,7 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git commit -m "Update from google." compliance.tex DMTN-199.pdf
+          git commit -m "Update from google." tables DMTN-199.pdf
           git push
 
 
