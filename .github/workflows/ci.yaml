@@ -28,7 +28,7 @@ jobs:
 
       - name: TeX build
         run: |
-          docker run --rm -v `pwd`:/workspace -w /workspace lsstsqre/lsst-texmf:latest sh -c 'make'
+          docker run --rm -v `pwd`:/workspace -w /workspace lsstsqre/lsst-texmf:latest sh -c 'make tables DMTN-199.pdf'
 
       - name: No landing page - just put the pdf in github
         if: ${{ github.event_name == 'push' }}
