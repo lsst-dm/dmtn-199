@@ -50,4 +50,4 @@ meta.tex: Makefile .FORCE
 
 
 tables: .FORCE
-	cd tables; makeTablesFromGoogle.py ${GSHEET}  matrix\!A1:E  cost\!A1:E
+	cd tables; makeTablesFromGoogle.py ${GSHEET}  matrix\!A1:F  cost\!A1:F
