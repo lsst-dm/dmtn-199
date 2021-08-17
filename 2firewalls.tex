@@ -41,13 +41,24 @@ This article\footnote{\url{https://www.linkbynet.com/outsourced-soc-vs-internal-
 an outsourced SOC and estimates it at between 300 and 800K per year.
 For costing purposed  \$40K a month was put in \tabref{tab:firewalls}.
 Such a contract (or contracts) should cover:
+
 \begin{enumerate}
-\item Exhaustive threat modeling - and keeping it up to date.
-\begin{itemize}
-\item Including Detection, Analysis, Action modeling.
-\end{itemize}
-\item Log analysis
-\item Vulnerability analysis/scanning
-\item NIST 171 section  3.3.5 Audit log correlation
-\item Developer oriented training exercises and awareness
+\item Proactive monitoring and alerting (NIST 171 section 3.3.5)
+  \begin{itemize}
+  \item Write alerts for suspicious behaviors
+  \item Analyze collected logs for anomalies
+  \end{itemize}
+\item Root cause analysis of any alert or anomaly
+\item Incident response
+  \begin{itemize}
+  \item Isolation of attacker
+  \item Forensic analysis leading to timeline and inventory of compromise
+  \item Identifying systems that will need to be rebuilt
+  \end{itemize}
+\item Vulnerability scanning including filtering out false positives
+\item Asset inventory including patch status
+\item Penetration testing to proactively look for vulnerabilities
 \end{enumerate}
+
+This will require extensive coordination and integration with existing IT
+services and processes, included as part of this cost.
