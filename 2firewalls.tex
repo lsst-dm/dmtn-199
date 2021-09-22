@@ -20,12 +20,12 @@ However we will treat it as a black box deliverable for this requirement. We sha
 
 I am not sure how to cost signage and labeling as required in NIST 171 3.8.4 \footnote{\url{https://www.archives.gov/files/cui/20161206-cui-marking-handbook-v1-1.pdf}}
 
-NIST 1.7.1 Section 3.10.6 pulls in extra standards for remote work namely \citeds{NIST.800-46} and \citeds{NIST.800-114}.
-\citeds{NIST.800-114} is the broader scope and we are pretty much in line with how it is written - we note Section 5.2.1 that we use Onepassword as a vault for IT passwords - not paper in a fire proof safe as recommended.
+NIST 1.7.1 Section 3.10.6 pulls in extra standards for remote work namely \citeds{nist800-46} and \citeds{nist800-114}.
+\citeds{nist800-114} is the broader scope and we are pretty much in line with how it is written - we note Section 5.2.1 that we use Onepassword as a vault for IT passwords - not paper in a fire proof safe as recommended.
 Some other suggestions are understood to be useful in general but often not suitable for developers - personal firewalls, application filtering  and aggressive antivirus software often trip over developer code and tools.
 
 Since these documents were written  as guidance we will take note of them but may not always follow all recommendations in all cases.
-\citeds{NIST.800-46} and other NIST documentation suggest threat modeling - we do this in a limited way e.g \citeds{SQR-041} and \citeds{SQR-037}. A more exhaustive risk assessment may be best done by a third party. We should discuss with SLAC.
+\citeds{nist800-46} and other NIST documentation suggest threat modeling - we do this in a limited way e.g \citeds{SQR-041} and \citeds{SQR-037}. A more exhaustive risk assessment may be best done by a third party. We should discuss with SLAC.
 We do not store sensitive information on the VPN nor bastion nodes.
 We do use NAT in a limited number of places - this will be more important in operations if/when we move to IPv6.
 
