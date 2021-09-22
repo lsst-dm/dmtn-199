@@ -6,14 +6,14 @@
 {3.1.2 Limit system access to the types of transactions and functions that authorized users are permitted to execute.}&{N}&{Y}&{There are many non-administrative users with unrestricted sudo access} \\ \hline
 {3.1.3 Control the flow of CUI in accordance with approved authorizations.}&{Y}&{Y}& \\ \hline
 {3.1.4 Separate the duties of individuals to reduce the risk of malevolent activity without collusion.}&{N}&{Y}&{Principle of least privilege is applied. Many users have access to hosts that is unneeded.} \\ \hline
-{3.1.5 Employ the principle of least privilege, including for specific security functions and privileged accounts.}&{N}&{Y}&{Targeted sudo rules are needed for common operations [Cristian: IPA controls sudo centrally, we will just need to remove full sudo for specific sudo commands.]} \\ \hline
+{3.1.5 Employ the principle of least privilege, including for specific security functions and privileged accounts.}&{N}&{Y}&{Targeted sudo rules are needed for common operations. IPA controls sudo centrally } \\ \hline
 {3.1.6 Use non-privileged accounts or roles when accessing nonsecurity functions.}&{Y}&{Y}& \\ \hline
-{3.1.7 Prevent non-privileged users from executing privileged functions and capture the execution of such functions in audit logs.}&{}&{Y}&{Cristian / Richard  - does this include SUDO ?  Does this mean  POSIX auditing?  [Cristian: this is probably sudo attempts audits, but full commands can be logged, probably an overkill]} \\ \hline
+{3.1.7 Prevent non-privileged users from executing privileged functions and capture the execution of such functions in audit logs.}&{}&{Y}&{This is probably sudo attempts audits. Full commands can be logged in at the cost of extra load for the servers.} \\ \hline
 {3.1.8 Limit unsuccessful login attempts.}&{N}&{Y}&{I don't believe we do this now but we can; this is not done for ssh on hosts or network equipment.  Web Services such as love, foreman, ipa console, nublado, etc. may need rate limiting [Cristian: we dont use passwords in ssh hosts, it's only ssh keys so technically we are limiting the access to a single attempt. ]} \\ \hline
-{3.1.9 Provide privacy and security notices consistent with applicable CUI rules.}&{N}&{Y}&{Check login notices etc. [Cristian: we can display a banner upon login with our requirements, can be done with Puppet]} \\ \hline
+{3.1.9 Provide privacy and security notices consistent with applicable CUI rules.}&{N}&{Y}&{Check login notices etc. A login banner can be displayed upon login } \\ \hline
 {3.1.10 Use session lock with pattern-hiding displays to prevent access and viewing of data after a period of inactivity.}&{Y}&{Y}&{This is our policy.} \\ \hline
 {3.1.11 Terminate (automatically) a user session after a defined condition.}&{N}&{Y}&{ssh sessions are generally not limited on hosts; some network equipment has timeouts set; nublado has a session limit for notebooks?} \\ \hline
-{3.1.12 Monitor and control remote access sessions.}&{N}&{Y}&{Cristian - not sure if we do this now .. [Cristian: we do some of it, we check who and from where is connecting (dashboard in graylog) , but we don't check what files are being transfered. } \\ \hline
+{3.1.12 Monitor and control remote access sessions.}&{N}&{Y}&{We currently check who and from where is connecting.} \\ \hline
 {3.1.13 Employ cryptographic mechanisms to protect the confidentiality of remote access sessions.}&{Y}&{Y}&{VPN is in use} \\ \hline
 {3.1.14 Route remote access via managed access control points.}&{N}&{Y}&{Bastion nodes -- LHN is an open back door with no ACLs} \\ \hline
 {3.1.15 Authorize remote execution of privileged commands and remote access to security-relevant information.}&{Y}&{Y}& \\ \hline
@@ -22,7 +22,7 @@
 {3.1.18 Control connection of mobile devices.}&{Y}&{Y}&{In the sense there is no open wifi, and on the summit devices must be registered. } \\ \hline
 {3.1.19 Encrypt CUI on mobile devices and mobile computing platforms.23}&{Y}&{Y}&{CUI will not exist on mobile devices - in the case where an image may exist on say commissioning team laptop we will have disk encryption enabled. } \\ \hline
 {3.1.20 Verify and control/limit connections to and use of external systems.}&{Y}&{Y}&{This implies vetting of devices that connect to the control network - we use mac address for laptops and personal mobile phones can not connect to the control network. [Cristian: we already have a separation with the LHN SSID and VLANS]} \\ \hline
-{3.1.21 Limit use of portable storage devices on external systems.}&{N}&{Y}&{Cristian/Richard - impliesn no USB drives etc enabled ...[Cristian: can be done with puppet, but I know of at least 1 group of servers that need USB, they are the new allsky called Dreams. Not sure about rasperrypis} \\ \hline
+{3.1.21 Limit use of portable storage devices on external systems.}&{N}&{Y}&{Cristian/Richard - impliesn no USB drives etc enabled ...[Cristian: can be done with puppet, but I know of at least 1 group of servers that need USB, they are the new allsky called Dreams. Not sure about rasperrypis - technically it says "LIMIT" use of .. so to the letter we woudl be ok ?} \\ \hline
 {3.1.22 Control CUI posted or processed on publicly accessible systems.}&{Y}&{Y}&{We do not intend to post CUI on publicly accessible systems. } \\ \hline
 {3.2 AWARENESS AND TRAINING}&&& \\ \hline
 {3.2.1 Ensure that managers, systems administrators, and users of organizational systems are made aware of the security risks associated with their activities and of the applicable policies, standards, and procedures related to the security of those systems.}&{Y}&{Y}& \\ \hline
@@ -69,7 +69,7 @@
 {3.7.2 Provide controls on the tools, techniques, mechanisms, and personnel used to conduct system maintenance.}&{Y}&{Y}& \\ \hline
 {3.7.3 Ensure equipment removed for off-site maintenance is sanitized of any CUI.}&{Y}&{Y}& \\ \hline
 {3.7.4 Check media containing diagnostic and test programs for malicious code before the media are used in organizational systems.}&{Y}&{Y}& \\ \hline
-{3.7.5 Require multifactor authentication to establish nonlocal maintenance sessions via external network connections and terminate such connections when nonlocal maintenance is complete.}&{}&{Y}&{Cristian .. Richard [Cristian: We dont do 2FA yet, but I believe DUO has the capability to kill sessions]} \\ \hline
+{3.7.5 Require multifactor authentication to establish nonlocal maintenance sessions via external network connections and terminate such connections when nonlocal maintenance is complete.}&{N}&{Y}&{Cristian .. Richard [Cristian: We dont do 2FA yet, but I believe DUO has the capability to kill sessions]} \\ \hline
 {3.7.6 Supervise the maintenance activities of maintenance personnel without required access authorization.}&{Y}&{Y}& \\ \hline
 {3.8 MEDIA PROTECTION}&&& \\ \hline
 {3.8.1 Protect (i.e., physically control and securely store) system media containing CUI, both paper and digital.}&{N}&{Y}& \\ \hline
@@ -88,9 +88,9 @@
 {3.10.1 Limit physical access to organizational systems, equipment, and the respective operating environments to authorized individuals.}&{Y}&{Y}&{This physical access limitations will increase with locks on server cabinets etc. but key card access is already in place. } \\ \hline
 {3.10.2 Protect and monitor the physical facility and support infrastructure for organizational systems.}&{Y}&{Y}&{Security is in place on Cero Pachon and at the entrance to the mountain - though not only for Rubin so not permanently at the observatory. } \\ \hline
 {3.10.3 Escort visitors and monitor visitor activity.}&{Y}&{Y}&{Actual visitors are escorted on the summit - contractors are considered more like staff. } \\ \hline
-{3.10.4 Maintain audit logs of physical access.}&{}&{Y}&{Cristian - does the key card system keep an audit ? [Cristian: we use Noirlab key-card system, not sure about their audit procedures} \\ \hline
+{3.10.4 Maintain audit logs of physical access.}&{N}&{Y}&{Cristian - does the key card system keep an audit ? [Cristian: we use Noirlab key-card system, not sure about their audit procedures} \\ \hline
 {3.10.5 Control and manage physical access devices.}&{Y}&{Y}& \\ \hline
-{3.10.6 Enforce safeguarding measures for CUI at alternate work sites.}&{Y}&{Y}&{This brings in \citeds{NIST.800-46} and \citeds{NIST.800-114}. Threat analysis suggested. NAT considered bad. } \\ \hline
+{3.10.6 Enforce safeguarding measures for CUI at alternate work sites.}&{Y}&{Y}&{This brings in \citeds{nist800-46} and \citeds{nist800-114}. Threat analysis suggested. NAT considered bad. } \\ \hline
 {3.11 RISK ASSESSMENT}&&& \\ \hline
 {3.11.1 Periodically assess the risk to organizational operations (including mission, functions, image, or reputation), organizational assets, and individuals, resulting from the operation of organizational systems and the associated processing, storage, or transmission of CUI.}&{Y}&{Y}& \\ \hline
 {3.11.2 Scan for vulnerabilities in organizational systems and applications periodically and when new vulnerabilities affecting those systems and applications are identified.}&{N}&{Y}&{Third party contract} \\ \hline
