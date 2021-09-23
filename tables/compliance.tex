@@ -3,7 +3,7 @@
 \textbf{NIST 800-171}&\textbf{2021 Status}&\textbf{Intended Compliance}&\textbf{Note} \\ \hline
 {3.1 ACCESS CONTROL}&&& \\ \hline
 {3.1.1 Limit system access to authorized users, processes acting on behalf of authorized users, and devices (including other systems).}&{Y}&{Y}& \\ \hline
-{3.1.2 Limit system access to the types of transactions and functions that authorized users are permitted to execute.}&{N}&{Y}&{There are many non-administrative users with unrestricted sudo access} \\ \hline
+{3.1.2 Limit system access to the types of transactions and functions that authorized users are permitted to execute.}&{N}&{Y}&{There are many non-administrative users with unrestricted sudo access, this will be addressed.} \\ \hline
 {3.1.3 Control the flow of CUI in accordance with approved authorizations.}&{Y}&{Y}& \\ \hline
 {3.1.4 Separate the duties of individuals to reduce the risk of malevolent activity without collusion.}&{N}&{Y}&{Principle of least privilege is applied. Many users have access to hosts that is unneeded.} \\ \hline
 {3.1.5 Employ the principle of least privilege, including for specific security functions and privileged accounts.}&{N}&{Y}&{Targeted sudo rules are needed for common operations. IPA controls sudo centrally } \\ \hline
@@ -22,12 +22,12 @@
 {3.1.18 Control connection of mobile devices.}&{Y}&{Y}&{In the sense there is no open wifi, and on the summit devices must be registered. } \\ \hline
 {3.1.19 Encrypt CUI on mobile devices and mobile computing platforms.23}&{Y}&{Y}&{CUI will not exist on mobile devices - in the case where an image may exist on say commissioning team laptop we will have disk encryption enabled. } \\ \hline
 {3.1.20 Verify and control/limit connections to and use of external systems.}&{Y}&{Y}&{This implies vetting of devices that connect to the control network - we use mac address for laptops and personal mobile phones can not connect to the control network. [Cristian: we already have a separation with the LHN SSID and VLANS]} \\ \hline
-{3.1.21 Limit use of portable storage devices on external systems.}&{N}&{Y}&{Cristian/Richard - impliesn no USB drives etc enabled ...[Cristian: can be done with puppet, but I know of at least 1 group of servers that need USB, they are the new allsky called Dreams. Not sure about rasperrypis - technically it says "LIMIT" use of .. so to the letter we woudl be ok ?} \\ \hline
+{3.1.21 Limit use of portable storage devices on external systems.}&{N}&{Y}&{Can be rolled out with puppet but there are some servers that need usb. } \\ \hline
 {3.1.22 Control CUI posted or processed on publicly accessible systems.}&{Y}&{Y}&{We do not intend to post CUI on publicly accessible systems. } \\ \hline
 {3.2 AWARENESS AND TRAINING}&&& \\ \hline
 {3.2.1 Ensure that managers, systems administrators, and users of organizational systems are made aware of the security risks associated with their activities and of the applicable policies, standards, and procedures related to the security of those systems.}&{Y}&{Y}& \\ \hline
 {3.2.2 Ensure that personnel are trained to carry out their assigned information security-related duties and responsibilities.}&{N}&{Y}& \\ \hline
-{3.2.3 Provide security awareness training on recognizing and reporting potential indicators of insider threat.}&{Y}&{Y}&{We would like to do more here like capture flag exercises for developers. [Cristian: we should contract a third party to organize ctf o blue/red teams events} \\ \hline
+{3.2.3 Provide security awareness training on recognizing and reporting potential indicators of insider threat.}&{Y}&{Y}&{We would like to do more here like capture flag exercises for developers or blue/red teams events} \\ \hline
 {3.3 AUDIT AND ACCOUNTABILITY}&&& \\ \hline
 {3.3.1 Create and retain system audit logs and records to the extent needed to enable the monitoring, analysis, investigation, and reporting of unlawful or unauthorized system activity.}&{Y}&{Y}& \\ \hline
 {3.3.2 Ensure that the actions of individual system users can be uniquely traced to those users, so they can be held accountable for their actions.}&{Y}&{Y}& \\ \hline
@@ -46,13 +46,13 @@
 {3.4.5 Define, document, approve, and enforce physical and logical access restrictions associated with changes to organizational systems.}&{Y}&{Y}& \\ \hline
 {3.4.6 Employ the principle of least functionality by configuring organizational systems to provide only essential capabilities.}&{N}&{Y}& \\ \hline
 {3.4.7 Restrict, disable, or prevent the use of nonessential programs, functions, ports, protocols, and services.}&{Y}&{Y}&{We get a lot of this by mainly containerizing the applications and having users work within deployed containers.} \\ \hline
-{3.4.8 Apply deny-by-exception (blacklisting) policy to prevent the use of unauthorized software or deny-all, permit-by-exception (whitelisting) policy to allow the execution of authorized software.}&{N}&{Y}&{We need to implement SUDO lists to restrict access.[Cristian: I think this goes beyond sudo, this is the blacklisting of applications, so we should have a way to prevent some software to be installed]} \\ \hline
+{3.4.8 Apply deny-by-exception (blacklisting) policy to prevent the use of unauthorized software or deny-all, permit-by-exception (whitelisting) policy to allow the execution of authorized software.}&{N}&{Y}&{We need to implement SUDO lists to restrict access. However, this could be related to blacklisting of applications.} \\ \hline
 {3.4.9 Control and monitor user-installed software.}&{Y}&{Y}& \\ \hline
 {3.5 IDENTIFICATION AND AUTHENTICATION}&&& \\ \hline
 {3.5.1 Identify system users, processes acting on behalf of users, and devices.}&{Y}&{Y}& \\ \hline
 {3.5.2 Authenticate (or verify) the identities of users, processes, or devices, as a prerequisite to allowing access to organizational systems.}&{Y}&{Y}& \\ \hline
-{3.5.3 Use multifactor authentication for local and network access to privileged accounts and for network access to non-privileged accounts.}&{N}&{Y}&{ I think chile dont require 2FA at the moment [Cristian:correct]} \\ \hline
-{3.5.4 Employ replay-resistant authentication mechanisms for network access to privileged and non- privileged accounts.}&{}&{Y}&{Not sure we do this now - Cristian Richard .. [Cristian: 2FA we dont do it yet. We do have certificates to prevent mitm} \\ \hline
+{3.5.3 Use multifactor authentication for local and network access to privileged accounts and for network access to non-privileged accounts.}&{N}&{Y}&{Chile dont require 2FA at the moment} \\ \hline
+{3.5.4 Employ replay-resistant authentication mechanisms for network access to privileged and non- privileged accounts.}&{}&{Y}&{Chile dont require 2FA at the moment, but certificates are deployed to prevent mitm} \\ \hline
 {3.5.5 Prevent reuse of identifiers for a defined period.}&{N}&{Y}& \\ \hline
 {3.5.6 Disable identifiers after a defined period of inactivity.}&{Y}&{Y}& \\ \hline
 {3.5.7 Enforce a minimum password complexity and change of characters when new passwords are created.}&{Y}&{Y}& \\ \hline
@@ -69,7 +69,7 @@
 {3.7.2 Provide controls on the tools, techniques, mechanisms, and personnel used to conduct system maintenance.}&{Y}&{Y}& \\ \hline
 {3.7.3 Ensure equipment removed for off-site maintenance is sanitized of any CUI.}&{Y}&{Y}& \\ \hline
 {3.7.4 Check media containing diagnostic and test programs for malicious code before the media are used in organizational systems.}&{Y}&{Y}& \\ \hline
-{3.7.5 Require multifactor authentication to establish nonlocal maintenance sessions via external network connections and terminate such connections when nonlocal maintenance is complete.}&{N}&{Y}&{Cristian .. Richard [Cristian: We dont do 2FA yet, but I believe DUO has the capability to kill sessions]} \\ \hline
+{3.7.5 Require multifactor authentication to establish nonlocal maintenance sessions via external network connections and terminate such connections when nonlocal maintenance is complete.}&{N}&{Y}&{Chile dont do 2FA yet. DUO has the capability to kill sessions.} \\ \hline
 {3.7.6 Supervise the maintenance activities of maintenance personnel without required access authorization.}&{Y}&{Y}& \\ \hline
 {3.8 MEDIA PROTECTION}&&& \\ \hline
 {3.8.1 Protect (i.e., physically control and securely store) system media containing CUI, both paper and digital.}&{N}&{Y}& \\ \hline
@@ -78,7 +78,7 @@
 {3.8.4 Mark media with necessary CUI markings and distribution limitations.}&{N}&{Y}&{We understand we should label rooms and machines acording to https://www.archives.gov/files/cui/20161206-cui-marking-handbook-v1-1.pdf} \\ \hline
 {3.8.5 Control access to media containing CUI and maintain accountability for media during transport outside of controlled areas.}&{Y}&{Y}& \\ \hline
 {3.8.6 Implement cryptographic mechanisms to protect the confidentiality of CUI stored on digital media during transport unless otherwise protected by alternative physical safeguards.}&{N}&{Y}& \\ \hline
-{3.8.7 Control the use of removable media on system components.}&{}&{Y}&{Cristian Richard [Cristian: same as line 24]} \\ \hline
+{3.8.7 Control the use of removable media on system components.}&{}&{Y}&{Can be rolled out with puppet but there are some servers that need usb. } \\ \hline
 {3.8.8 Prohibit the use of portable storage devices when such devices have no identifiable owner.}&{Y}&{Y}& \\ \hline
 {3.8.9 Protect the confidentiality of backup CUI at storage locations.}&{Y}&{Y}& \\ \hline
 {3.9 PERSONNEL SECURITY}&&& \\ \hline
@@ -88,7 +88,7 @@
 {3.10.1 Limit physical access to organizational systems, equipment, and the respective operating environments to authorized individuals.}&{Y}&{Y}&{This physical access limitations will increase with locks on server cabinets etc. but key card access is already in place. } \\ \hline
 {3.10.2 Protect and monitor the physical facility and support infrastructure for organizational systems.}&{Y}&{Y}&{Security is in place on Cero Pachon and at the entrance to the mountain - though not only for Rubin so not permanently at the observatory. } \\ \hline
 {3.10.3 Escort visitors and monitor visitor activity.}&{Y}&{Y}&{Actual visitors are escorted on the summit - contractors are considered more like staff. } \\ \hline
-{3.10.4 Maintain audit logs of physical access.}&{N}&{Y}&{Cristian - does the key card system keep an audit ? [Cristian: we use Noirlab key-card system, not sure about their audit procedures} \\ \hline
+{3.10.4 Maintain audit logs of physical access.}&{N}&{Y}&{Chile use Noirlab key-card system, we should reach to them to inquire about their audit procedures} \\ \hline
 {3.10.5 Control and manage physical access devices.}&{Y}&{Y}& \\ \hline
 {3.10.6 Enforce safeguarding measures for CUI at alternate work sites.}&{Y}&{Y}&{This brings in \citeds{nist800-46} and \citeds{nist800-114}. Threat analysis suggested. NAT considered bad. } \\ \hline
 {3.11 RISK ASSESSMENT}&&& \\ \hline
@@ -105,15 +105,15 @@
 {3.13.3 Separate user functionality from system management functionality.}&{N}&{Y}&{This is difficult in development and commissioning but should be ok in operations. } \\ \hline
 {3.13.4 Prevent unauthorized and unintended information transfer via shared system resources.}&{N}&{Y}&{This will require training the operators and scientist who have access to the CUI data to not put it on their devices. } \\ \hline
 {3.13.5 Implement subnetworks for publicly accessible system components that are physically or logically separated from internal networks.}&{Y}&{Y}& \\ \hline
-{3.13.6 Deny network communications traffic by default and allow network communications traffic by exception (i.e., deny all, permit by exception).}&{Y}&{Y}&{Cristian ..[Cristian: yes, this is Firewall work, we may need to bring up iptables on each host....]} \\ \hline
+{3.13.6 Deny network communications traffic by default and allow network communications traffic by exception (i.e., deny all, permit by exception).}&{Y}&{Y}&{We may need to bring up iptables on each host} \\ \hline
 {3.13.7 Prevent remote devices from simultaneously establishing non-remote connections with organizational systems and communicating via some other connection to resources in external networks (i.e., split tunneling).}&{Y}&{Y}& \\ \hline
 {3.13.8 Implement cryptographic mechanisms to prevent unauthorized disclosure of CUI during transmission unless otherwise protected by alternative physical safeguards.}&{N}&{Y}&{IPSEC and encryption coming} \\ \hline
 {3.13.9 Terminate network connections associated with communications sessions at the end of the sessions or after a defined period of inactivity.}&{Y}&{Y}& \\ \hline
 {3.13.10 Establish and manage cryptographic keys for cryptography employed in organizational systems.}&{Y}&{Y}& \\ \hline
 {3.13.11 Employ FIPS-validated cryptography when used to protect the confidentiality of CUI.}&{N}&{Y}& \\ \hline
 {3.13.12 Prohibit remote activation of collaborative computing devices and provide indication of devices in use to users present at the device.}&{Y}&{Y}&{We should take care with the new roaming camera.} \\ \hline
-{3.13.13 Control and monitor the use of mobile code.}&{Y}&{Y}&{Currently we have no mobile code [Cristian: CMMS is considering a mobile friendly version, this may be a question for Chuck/Sandrine, but may not fall under CUI]} \\ \hline
-{3.13.14 Control and monitor the use of Voice over Internet Protocol (VoIP) technologies.}&{N}&{Y}&{[Cristian: we dont monitor calls]} \\ \hline
+{3.13.13 Control and monitor the use of mobile code.}&{Y}&{Y}&{Currently we have no mobile code} \\ \hline
+{3.13.14 Control and monitor the use of Voice over Internet Protocol (VoIP) technologies.}&{N}&{Y}&{Chile dont monitor voip callls} \\ \hline
 {3.13.15 Protect the authenticity of communications sessions.}&{Y}&{Y}& \\ \hline
 {3.13.16 Protect the confidentiality of CUI at rest.}&{N}&{Y}& \\ \hline
 {3.14 SYSTEM AND INFORMATION INTEGRITY}&&& \\ \hline
