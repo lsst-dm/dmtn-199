@@ -13,3 +13,13 @@ table table 40 this comes out to about 500TB of usable disk.
 
 
 \bf{Note:} If we assume the security requirements apply to commissioning i.e. we must use encrypted storage and encrypted lines, then we can not carry out commissioning activities at NCSA. This implies SLAC must be ready for ComCam.
+
+\figref{fig:arch} depicts the encrypted storage and network. Embargoed (delayed) data would be held in this encrypted stores for the time specified.
+We assume temporary processing for alerts does not have to encrypted, NIST allows ephemeral unencrypted CUI for processing.
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{OGA_Diagram}
+	\caption{ OGA architecture  showing the short term encrypted storage and encrypted network from Chile to SLAC. \label{fig:arch}}
+\end{centering}
+\end{figure}
