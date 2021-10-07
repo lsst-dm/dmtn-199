@@ -1,23 +1,22 @@
-name: CI
 
-"on": [push, pull_request]
+name: Update Comliance
+on: workflow_dispatch
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
+   generate:
+     runs-on: ubuntu-latest
+     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0 # full history for metadata
-          submodules: true
+          submodules: false
 
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
 
-      - name: Set up google
+      - name: make tables from google
         env:
           CLIENT: ${{ secrets.CLIENT }}
           TOKEN_PASSPHRASE: ${{ secrets.TOKEN_PASSPHRASE }}
@@ -25,15 +24,15 @@ jobs:
           echo $CLIENT >> tables/client_secret.json
           ./decrypt_secret.sh
 
-
       - name: TeX build
         run: |
           docker run --rm -v `pwd`:/workspace -w /workspace lsstsqre/lsst-texmf:latest sh -c 'make tables DMTN-199.pdf'
-
-      - name: No landing page - just put the pdf in github
-        if: ${{ github.event_name == 'push' }}
+ 
+      - name: Create commit
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git commit -m " Build of doc from github action " DMTN-199.pdf tables
+          git commit -m "Update from google." tables DMTN-199.pdf
           git push
+
+

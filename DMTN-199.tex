@@ -1,4 +1,4 @@
-\documentclass[DM,authoryear,toc]{lsstdoc}
+\documentclass[DM,lsstdraft,authoryear,toc]{lsstdoc}
 % lsstdoc documentation: https://lsst-texmf.lsst.io/lsstdoc.html
 \input{meta}
 
@@ -10,13 +10,22 @@
 %\input{aglossary.tex}
 %\makeglossaries
 
-\title{CUI Rubin Observatory Data Security Standards  Response}
+\title{Rubin Observatory Data Security Standards  Response}
 
 % Optional subtitle
 % \setDocSubtitle{A subtitle}
 
 \author{%
-William O'Mullane
+William O'Mullane,
+Russ Allbery,
+Yusra AlSayyad,
+Eric Bellm,
+Andy Clements,
+Richard Dubois,
+Joshua Hoblitt,
+Cristi\'{a}n Silva,
+Ian Sullivan,
+Kian-Tat Lim
 }
 
 \setDocRef{DMTN-199}
@@ -28,7 +37,7 @@ William O'Mullane
 % \setDocCurator{The Curator of this Document}
 
 \setDocAbstract{%
-This is a response to the Controlled Unclassified Information (CUI)  document from the agencies.
+This is a response to the security document from the agencies.
 }
 
 % Change history defined here.
@@ -36,7 +45,10 @@ This is a response to the Controlled Unclassified Information (CUI)  document fr
 % Fields: VERSION, DATE, DESCRIPTION, OWNER NAME.
 % See LPM-51 for version number policy.
 \setDocChangeRecord{%
-  \addtohist{1}{YYYY-MM-DD}{Unreleased.}{William O'Mullane}
+  \addtohist{0.1}{2021-07-19}{Unreleased. Set up structure}{William O'Mullane}
+  \addtohist{0.2}{2021-09-28}{Unreleased. First draft for JSR 2021}{William O'Mullane}
+  \addtohist{0.3}{2021-10-04}{Unreleased. Second draft for JSR 2021}{William O'Mullane}
+  \addtohist{0.4}{2021-10-05}{Unreleased. Tidy for JSR 2021}{William O'Mullane}
 }
 
 
@@ -48,9 +60,14 @@ This is a response to the Controlled Unclassified Information (CUI)  document fr
 % use \mkshorttitle to remove the extra pages
 
 % ADD CONTENT HERE
-% You can also use the \input command to include several content files.
-
+\input{body}
+\newpage
 \appendix
+
+\section{Compliance with NIST Standard}\label{sec:compliance}
+\input{tables/compliance}
+
+\newpage
 % Include all the relevant bib files.
 % https://lsst-texmf.lsst.io/lsstdoc.html#bibliographies
 \section{References} \label{sec:bib}
