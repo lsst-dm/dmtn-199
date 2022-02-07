@@ -4,7 +4,7 @@
 This requirement is for physical and cyber security. It includes installing cameras and locks on racks.
 Some of this such as Firewalls is already in the project plan but much of it is not.
 
-Items already in the plan:
+Items already in the baseline include:
 \begin{itemize}
 \item Card access to server rooms.
 \item Backup network in case main link fails (though the microwave link is a new addition ..)
@@ -13,19 +13,18 @@ Items already in the plan:
 
 \end{itemize}
 
-We will do as requested and cost estimates are provided in \tabref{tab:firewalls}.
+The firewalls and physical security will be upgraded to meet the enhanced standard. \tabref{tab:firewalls} includes the items needed for this upgrade.
 
 {\bf Important Note}: We shall ring fence the Camera in its own firewall with more restricted access than the restricted control network.
-However we will treat it as a black box deliverable for this requirement. We shall not expect encryption of the internal disks of the camera system. Any perturbation to the camera system tends to extend the project baseline.
+However we will treat it as a black box deliverable for this requirement. We shall not expect encryption of the internal disks of the camera system. Any perturbation to the camera system will have a deleterious effect on the camera with significant development and schedule impacts.
 
-I am not sure how to cost signage and labeling as required in NIST 171 3.8.4 \footnote{\url{https://www.archives.gov/files/cui/20161206-cui-marking-handbook-v1-1.pdf}}
+Signage and labeling, as required in NIST 171 3.8.4 \footnote{\url{https://www.archives.gov/files/cui/20161206-cui-marking-handbook-v1-1.pdf}}, will be developed as appropriate.
 
 NIST 1.7.1 Section 3.10.6 pulls in extra standards for remote work namely \citeds{nist800-46} and \citeds{nist800-114}.
 \citeds{nist800-114} is the broader scope and we are pretty much in line with how it is written - we note Section 5.2.1 that we use Onepassword as a vault for IT passwords - not paper in a fire proof safe as recommended.
 Some other suggestions are understood to be useful in general but often not suitable for developers - personal firewalls, application filtering  and aggressive antivirus software often trip over developer code and tools.
 
-Since these documents were written  as guidance we will take note of them but may not always follow all recommendations in all cases.
-\citeds{nist800-46} and other NIST documentation suggest threat modeling - we do this in a limited way e.g \citeds{SQR-041} and \citeds{SQR-037}. A more exhaustive risk assessment may be best done by a third party. We should discuss with SLAC.
+\citeds{nist800-46} and other related NIST documentation suggest threat modeling - we do this in a limited way e.g \citeds{SQR-041} and \citeds{SQR-037}. A more exhaustive risk assessment by a third party is not anticipate at this time but the Project team will discuss with SLAC on any plans to review the USDF.
 We do not store sensitive information on the VPN nor bastion nodes.
 We do use NAT in a limited number of places - this will be more important in operations if/when we move to IPv6.
 
@@ -35,11 +34,11 @@ We do use NAT in a limited number of places - this will be more important in ope
 
 
 
-We need to cost security contracts, its a hot area and can be expensive.
-It is estimated running a SOC could cost upward of \$1.4M per year\footnote{\url{https://expel.io/blog/how-much-does-it-cost-to-build-a-24x7-soc/}}.
+This enhanced security plan includes support from an outside security provider.
+It is estimated running an SOC could cost upward of \$1.4M per year\footnote{\url{https://expel.io/blog/how-much-does-it-cost-to-build-a-24x7-soc/}}.
 This article\footnote{\url{https://www.linkbynet.com/outsourced-soc-vs-internal-soc-how-to-choose}} outlines the pros and cons of
 an outsourced SOC and estimates it at between 300 and 800K per year.
-For costing purposed  \$40K a month was put in \tabref{tab:firewalls}.
+For budgeting purposes  \$40K a month is included in \tabref{tab:firewalls}.
 Such a contract (or contracts) should cover:
 
 \begin{enumerate}
@@ -64,8 +63,8 @@ This will require extensive coordination and integration with existing IT
 services and processes, included as part of this cost.
 
 Since we will have to encrypt systems on the summit (see \citeds{ITTN-014}) for a list of systems)
-we may need to upgrade processors and buy SSD. This will require experimentation so the
-values in the table for this are very rough estimates.
+we anticipate upgrade processors and solid state drives (SSD) are required. Determining the detailed specifications will require experimentation so the
+values in the table for this are engineering estimates.
 
 Note that compute facilities for the Commissioning Cluster at the Base as well as Alert Production and the Staff RSP at the USDF are not considered to be within the physical security area.
-If these systems that perform short-term, ephemeral processing of embargoed data must be treated the same as the others, this would approximately double the cost of this item for Construction.
+Rubin considers the short-term, ephemeral processing on these resources outside of the enhanced security requirmenets. Including them would approximately double the cost of this item for Construction.

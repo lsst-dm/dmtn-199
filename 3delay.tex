@@ -1,7 +1,7 @@
 
 \subsection{Delay public release} \label{sec:3delay}
 
-The best approach here is to keep the embargoed data on a secure device separate from other systems and migrate images to the regular repository as they become \emph{public}.
+Rubin considers the best approach to managing public release of data is to keep the embargoed data on a secure device separate from other systems and migrate images to the regular repository as they become \emph{public}.
 This can be an object store with encryption like MinIO \footnote{\url{ https://min.io/product/enterprise-object-storage-encryption}}.
 We will need to have one at SLAC and one at Chile for redundancy to ensure no data loss.
 
@@ -15,7 +15,7 @@ The nominal embargo for regular operations we understand as between 80 hours (mo
 \input{tables/delay}
 
 
-{\bf Note:} If we assume the security requirements apply to commissioning i.e. we must use encrypted storage and encrypted lines, then we can not carry out commissioning activities at NCSA. This implies SLAC must be ready for ComCam.
+{\bf Note:} To enact these enhanced security measures on Commissioning data, this plan focuses on early data processing at the SLAC USDF and not the resources originally planned at NCSA. The SLAC USDF must be ready with sufficient services and capacity for ComCam, on sky work.
 
 \figref{fig:arch} depicts the encrypted storage and network. Embargoed (delayed) data would be held in the encrypted stores for the time specified.
 We assume temporary processing for alerts does not have to be encrypted, NIST allows ephemeral unencrypted data for processing.
