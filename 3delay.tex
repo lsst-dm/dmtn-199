@@ -3,26 +3,26 @@
 
 Rubin considers the best approach to managing public release of data is to keep the embargoed data on a secure device separate from other systems and migrate images to the regular repository as they become \emph{public}.
 This can be an object store with encryption like MinIO \footnote{\url{ https://min.io/product/enterprise-object-storage-encryption}}.
-We will need to have one at SLAC and one at Chile for redundancy to ensure no data loss.
+We will need to have one at \gls{SLAC} and one at Chile for redundancy to ensure no data loss.
 
 With the commissioning constraint that means this needs to be approxemately a one month store  for full images and engineering data.
 Looking at \citeds{DMTN-135}
 table 40 this comes out to about 500TB of usable disk.
 \tabref{tab:delay} gives the cost calculation or this.
 
-The nominal embargo for regular operations we understand as between a few days (most images) and ten days (some images as specified by Alert Vetting).
+The nominal embargo for regular operations we understand as between a few days (most images) and ten days (some images as specified by \gls{Alert} Vetting).
 
 \input{tables/delay}
 
 
-{\bf Note:} To enact these enhanced security measures on Commissioning data, this plan focuses on early data processing at the SLAC USDF and not the resources originally planned at NCSA. The SLAC USDF must be ready with sufficient services and capacity for ComCam, on sky work.
+{\bf Note:} To enact these enhanced security measures on \gls{Commissioning} data, this plan focuses on early data processing at the SLAC USDF and not the resources originally planned at NCSA. The SLAC USDF must be ready with sufficient services and capacity for ComCam, on sky work.
 
 \figref{fig:arch} depicts the encrypted storage and network. Embargoed (delayed) data would be held in the encrypted stores for the time specified.
-We assume temporary processing for alerts does not have to be encrypted, NIST allows ephemeral unencrypted data for processing.
+We assume temporary processing for alerts does not have to be encrypted, \gls{NIST} allows ephemeral unencrypted data for processing.
 
 \begin{figure}
 \begin{centering}
 \includegraphics[width=\textwidth]{OGA_Diagram}
-	\caption{ OGA architecture  showing the long term encrypted storage and encrypted network from Chile to SLAC. \label{fig:arch}}
+	\caption{ \gls{OGA} architecture  showing the long term encrypted storage and encrypted network from Chile to SLAC. \label{fig:arch}}
 \end{centering}
 \end{figure}
