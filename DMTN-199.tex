@@ -3,10 +3,10 @@
 \input{meta}
 
 %If you want glossaries
-%\input{aglossary.tex}
-%\makeglossaries
+\input{aglossary.tex}
+\makeglossaries
 
-\title{Rubin Observatory Data Security Standards  Response}
+\title{Rubin Observatory Data Security Standards Implementation}
 
 % Optional subtitle
 % \setDocSubtitle{A subtitle}
@@ -33,7 +33,7 @@ Kian-Tat Lim
 % \setDocCurator{The Curator of this Document}
 
 \setDocAbstract{%
-This is a response to the security document from the agencies.
+In this document we describe a set of measures that we plan to take, in order to secure the data taken at Rubin Observatory to the standards set by the US funding agencies.
 }
 
 % Change history defined here.
@@ -47,6 +47,7 @@ This is a response to the security document from the agencies.
   \addtohist{0.4}{2021-10-05}{Unreleased. Tidy for JSR 2021}{William O'Mullane}
   \addtohist{0.5}{2021-11-23}{Unreleased. Fix router price, inclide Huawei Avoid}{William O'Mullane}
    \addtohist{1.0}{2022-02-02}{ Remomved Huawei from this plan and added descriptions}{Victor Krabbendam}
+   \addtohist{1.1}{2022-08-02}{ Simplify summary in intro }{William O'Mullane }
 
 }
 
@@ -75,9 +76,9 @@ This is a response to the security document from the agencies.
 
 % Make sure lsst-texmf/bin/generateAcronyms.py is in your path
 \section{Acronyms} \label{sec:acronyms}
-\input{acronyms.tex}
+%\input{acronyms.tex}
 % If you want glossary uncomment below -- comment out the two lines above
-%\printglossaries
+\printglossaries
 
 
 

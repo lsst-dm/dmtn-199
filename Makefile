@@ -15,8 +15,12 @@ endif
 export TEXMFHOME ?= lsst-texmf/texmf
 
 # Add aglossary.tex as a dependancy here if you want a glossary (and remove acronyms.tex)
-$(DOCNAME).pdf: $(tex) meta.tex local.bib acronyms.tex
-	latexmk -bibtex -xelatex -f $(DOCNAME)
+$(DOCNAME).pdf: $(tex) meta.tex local.bib acronyms.tex aglossary.tex
+	xelatex  $(DOCNAME).tex
+	bibtex  $(DOCNAME)
+	xelatex  $(DOCNAME).tex
+	xelatex  $(DOCNAME).tex
+	
 #	makeglossaries $(DOCNAME)
 #	xelatex $(SRC)
 # For glossary uncomment the 2 lines above
@@ -28,7 +32,7 @@ acronyms.tex: $(tex) myacronyms.txt
 
 # If you want a glossary you must manually run generateAcronyms.py  -gu to put the \gls in your files.
 aglossary.tex :$(tex) myacronyms.txt
-	generateAcronyms.py  -g $(tex)
+	generateAcronyms.py  -t "DM" -g $(tex)
 
 
 .PHONY: clean
