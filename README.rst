@@ -3,14 +3,10 @@
 .. image:: https://github.com/lsst-dm/dmtn-199/workflows/CI/badge.svg
    :target: https://github.com/lsst-dm/dmtn-199/actions/
 
-#######################################################
-CUI Rubin Observatory Data Security Standards  Response
-#######################################################
-
 DMTN-199
 ========
 
-This is a response to the Controlled Unclassified Information (CUI)  document from the agencies.
+Implementation of Rubin data security standards.
 
 Links
 =====
