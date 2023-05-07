@@ -35,16 +35,18 @@ As we approach the operations phase of Rubin Observatory and prepare to deliver 
 Nightly alert packets will be produced and streamed to community brokers at the 60 sec cadence (design specification, the minimum requirement is 120 sec), including postage stamps of size $32 \times 32$ pixels ($6.4 \times 6.4$ sq.\ arcsec, or larger---for more details, please see \citeds{LSE-63}).
 A database of objects detected on difference images will be updated nightly and available through the Rubin Science Platform (RSP).
 Following guidance from the funding agencies, full frame (3.2 Gpix) images in all three flavors (raw, calibrated, and difference), will be made available 80 hours after they were obtained.
-A small fraction of the total of all images obtained may be held longer than 80 hr.
+A small fraction of the total of all images obtained may be held longer than 80 hr and a mechanism for extending embargo periods for certain images at the request of the funding agencies will be implemented.
 Rubin has consulted with scientists in the community and determined that the policy directive for this 80 hour delay will not significantly impact most science investigations.
+Additionally no prompt alerts will be issues for sources corresponding to objects in an appropriate satellite catalog. And no prompt alerts for streaks greater than 10 deg/day relative to sidereal
+The exclusion of prompt alerts for these streaks will have minimal impact on science.
+In the rare event an unknown solar system object source with a streak length greater than 10 deg/day relative to sidereal potentially corresponds with ans earth impacting asteroid, the \gls{USDF} will implement a method to send any candidate impactors to the \gls{MPC} during the embargo period.
+All data in transit shall comply with the strong, approved encryption standards outlined for the embargo period.
 
-In addition, commissioning data will be embargoed for all non-commissioning team staff for 30 days.
+In addition, commissioning and engineering data will be embargoed for all non-commissioning team staff for 30 days.
 After this 30 day embargo, only with explicit approval may proprietary data products from commissioning be shared outside the Commissioning Team   \citeds{SITCOMTN-010}.
 
 Commissioning Team members are expected to use approved Project tools and processes for communication, data access and analysis, documentation, software development, work management, etc.
 In practice, we expect most work done by the Commissioning Team on the commissioning data to be done within private directories at the Rubin US Data Facility at SLAC.
-However, some commissioning data products may be exported for local analysis by individual Commissioning Team members, who commit to protecting those data products.
-Rubin Operations may support development work using commissioning data by its own staff at any of its Data Facilities (including the France and UK Data Facilities), using private directories prior to data release, and secure hardware for embargoed data as needed.
 
 Appropriate data and data products from commissioning will be assembled in data previews  and released to the community within about 6 months of the end of the associated phase of commissioning (e.g, DP1 will be released approximately 6 months after the ComCam observations are completed).
 It is expected that a data preview based on science validation survey data from the ultimate phase of LSST Cam commissioning (about 2 months of Science Validation Surveys) will be made available early in full survey operations, before the first data release processing begins.
