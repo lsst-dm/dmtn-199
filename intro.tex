@@ -5,13 +5,26 @@ The funding agencies, NSF and DOE,  have provided a set of requirements for data
 The requirements can be organized and summarized at a high level as follows:
 \begin{enumerate}
 
-\item	Encrypt data following \gls{NIST} .
-\item	Use firewalls to prevent unauthorized  access.
-\item	Hold focal plane scientific data for a few days following the observation. Hold engineering and commissioning imaging data for several weeks.
-\item	Do not alert on artificial Earth-orbiting satellites.
-In order to do this, check some alerts against appropriate satellite catalogs.
-\item	Publish the survey schedule 24 hours in advance.
-\item	Request approval to observe without sidereal tracking.
+\item	Encrypt data using strong, approved encryption standards,  following \citeds{NIST.SP.800-171} for \gls{CUI} at non federal organizations. The required use of these \gls{NIST} security standards is limited to the physical security and encryption points. It does not extend to treating the data as \gls{CUI}. The data should \emph{not} be marked as \gls{CUI}.
+\item	Use firewalls and physical security best practices to prevent unauthorized network  access. Documented compliance shall be in accordance with \citeds{NIST.SP.800-171}.
+\item	Delay public release of  focal plane scientific data for an embargo period of at least 80 hours following the  observation.
+Hold engineering and commissioning imaging data for an embargo period of at least 30 days.
+Data aside from focal plane data may be made available following the original project plan which includes astronomical metadata (within 24 hours), standard postage stamp images (within 60 sec) not corresponding to artificial  Earth-orbiting satellites (see Requirement 4), and weather and sky monitoring data.
+NSF and DOE require a system in  place to extend the embargo times for the release of focal plane scientific data in the unlikely event that it is needed.
+
+\item	Eliminate artificial Earth-orbiting satellites.
+To do this, do not issue alerts on streaks that correspond to objects  moving faster than 10 deg/day relative to sidereal tracking or for objects whose angular velocity cannot be determined.
+Additionally, any object in the appropriate catalogs provided to the U.S. Data Facility shall be eliminated from the  Prompt Alert Stream and withheld from the publicly searchable Prompt Processing Database.
+SLAC shall handle any  observations and/or ephemerides used to create and/or update orbital elements in a satellite database or catalog as  OFFICIAL USE ONLY and implement appropriate controls as directed by DOE
+\item	Publish the nominal survey schedule 24 hours and an updated schedule at least 2 hours in advance.
+Once complete, publicly provide the actual executed observation.
+It is understood the schedule may change in real-time due to  weather or other unforeseen circumstances.
+
+\item	Only observe without sidereal tracking in regions pre-approved by NSF and DOE.
+Currently, the only restrictions when operating in non-sidereal tracking modes include that no part of the field of view shall be within $\pm 2$ degrees  inclination of the \gls{GEO} belt orbital plane.
+No camera bore sights shall be between $+1.0$ and $+9.0$ degrees of declination.
+Currently, no other bore sight restrictions are anticipated; however, NSF and DOE may add additional non-sidereal tracking field of view restrictions in the future.
+
 
 \end{enumerate}
 

@@ -20,9 +20,8 @@ $(DOCNAME).pdf: $(tex) meta.tex local.bib acronyms.tex aglossary.tex
 	bibtex  $(DOCNAME)
 	xelatex  $(DOCNAME).tex
 	xelatex  $(DOCNAME).tex
-	
-#	makeglossaries $(DOCNAME)
-#	xelatex $(SRC)
+	makeglossaries $(DOCNAME)
+	xelatex $(SRC)
 # For glossary uncomment the 2 lines above
 
 
