@@ -2,10 +2,15 @@
 \subsection{Eliminate earth orbiting satellites} \label{sec:4eliminate}
 
 Rubin does not publish alerts for streaks associated with artificial satellites.
-A subset of streaks, potentially consistent with Earth-orbiting satellites or Solar System objects, will be evaluated by the \gls{AVS}.
-AVS is under discussion currently in terms of design and how it may be implemented.
-The cost here is based on FTE  and non labor after initial discussions with \gls{LLNL}.
-They are assuming a high availability service.
+A subset of streaks, potentially consistent with Earth-orbiting satellites or Solar System objects,
+will be determined by comparison with an appropriate catalog or catalogs at the \gls{USDF}.
+Any object that corresponds to an object in this catalog will not be released in the  prompt
+alerts or stored in the prompt alert database.
+Any catalog that SLAC creates noting these corresponding identifications will be held at the OFFICIAL USE ONLY level within the \gls{USDF} at \gls{SLAC} and have appropriate export-controls and \gls{FOIA} exemptions.
+Additionally no streaks will be  alerted on with a streak length greater than 10 deg/day relative to sidereal.
+In the rare event an unknown solar system object source with a streak  length greater than 10 deg/day potentially corresponds with an Earth-impacting asteroid, SLAC shall implement a method to send any candidate  impactors to the Minor Planet Center during the embargo period, complying with encryption standards for data in transit during the embargo  period.
+
+The estimated cost for this is based mainly on FTE - we do not consider the need for extra hardware unless the agencies wish for hardware encryption for the few occasions we need to send a secure message to \gls{MPC}.
 An estimate is given in \tabref{tab:eliminate}. This also includes the current value in the operations plan.
 The cost of delaying the data in an encrypted store is already covered in \secref{sec:3delay}
 
