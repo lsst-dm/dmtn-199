@@ -1,6 +1,6 @@
 \section{Introduction}
 
-The funding agencies, NSF and DOE,  have provided a set of requirements for data security which are addressed in this upgrade plan.  This document addresses the upgrades specifically and will augment the overall security plan for Rubin observatory (see \citeds{LDM-324}).
+The funding agencies, NSF and \gls{DOE},  have provided a set of requirements for data security which are addressed in this upgrade plan.  This document addresses the upgrades specifically and will augment the overall security plan for Rubin observatory (see \citeds{LDM-324}).
 
 The requirements can be organized and summarized at a high level as follows:
 \begin{enumerate}
@@ -9,21 +9,21 @@ The requirements can be organized and summarized at a high level as follows:
 \item	Use firewalls and physical security best practices to prevent unauthorized network  access. Documented compliance shall be in accordance with \citeds{NIST.SP.800-171}.
 \item	Delay public release of  focal plane scientific data for an embargo period of at least 80 hours following the  observation.
 Hold engineering and commissioning imaging data for an embargo period of at least 30 days.
-Data aside from focal plane data may be made available following the original project plan which includes astronomical metadata (within 24 hours), standard postage stamp images (within 60 sec) not corresponding to artificial  Earth-orbiting satellites (see Requirement 4), and weather and sky monitoring data.
-NSF and DOE require a system in  place to extend the embargo times for the release of focal plane scientific data in the unlikely event that it is needed.
+Data aside from focal plane data may be made available following the original project plan which includes astronomical metadata (within 24 hours), standard \gls{postage stamp} images (within 60 sec) not corresponding to artificial  Earth-orbiting satellites (see Requirement 4), and weather and sky monitoring data.
+NSF and \gls{DOE} require a system in  place to extend the embargo times for the release of focal plane scientific data in the unlikely event that it is needed.
 
 \item	Eliminate artificial Earth-orbiting satellites.
-To do this, do not issue alerts on streaks that correspond to objects  moving faster than 10 deg/day relative to sidereal tracking or for objects whose angular velocity cannot be determined.
-Additionally, any object in the appropriate catalogs provided to the U.S. Data Facility shall be eliminated from the  Prompt Alert Stream and withheld from the publicly searchable Prompt Processing Database.
-SLAC shall handle any  observations and/or ephemerides used to create and/or update orbital elements in a satellite database or catalog as  OFFICIAL USE ONLY and implement appropriate controls as directed by DOE
+To do this, do not issue alerts on streaks that correspond to objects  moving faster than 10 \gls{deg}/day relative to sidereal tracking or for objects whose angular velocity cannot be determined.
+Additionally, any object in the appropriate catalogs provided to the U.S. Data Facility shall be eliminated from the  Prompt \gls{Alert} Stream and withheld from the publicly searchable Prompt Processing Database.
+SLAC shall handle any  observations and/or ephemerides used to create and/or update orbital elements in a satellite database or catalog as  OFFICIAL USE ONLY and implement appropriate controls as directed by \gls{DOE}
 \item	Publish the nominal survey schedule 24 hours and an updated schedule at least 2 hours in advance.
 Once complete, publicly provide the actual executed observation.
 It is understood the schedule may change in real-time due to  weather or other unforeseen circumstances.
 
-\item	Only observe without sidereal tracking in regions pre-approved by NSF and DOE.
+\item	Only observe without sidereal tracking in regions pre-approved by NSF and \gls{DOE}.
 Currently, the only restrictions when operating in non-sidereal tracking modes include that no part of the field of view shall be within $\pm 2$ degrees  inclination of the \gls{GEO} belt orbital plane.
-No camera bore sights shall be between $+1.0$ and $+9.0$ degrees of declination.
-Currently, no other bore sight restrictions are anticipated; however, NSF and DOE may add additional non-sidereal tracking field of view restrictions in the future.
+No \gls{camera} bore sights shall be between $+1.0$ and $+9.0$ degrees of declination.
+Currently, no other bore sight restrictions are anticipated; however, NSF and \gls{DOE} may add additional non-sidereal tracking field of view restrictions in the future.
 
 
 \end{enumerate}
@@ -32,28 +32,28 @@ Currently, no other bore sight restrictions are anticipated; however, NSF and DO
 
 As we approach the operations phase of Rubin Observatory and prepare to deliver data products to the community for the Legacy Survey of Space and Time, we want to remind the community of the basic data products delivered by alert production and data releases.
 
-Nightly alert packets will be produced and streamed to community brokers at the 60 sec cadence (design specification, the minimum requirement is 120 sec), including postage stamps of size $32 \times 32$ pixels ($6.4 \times 6.4$ sq.\ arcsec, or larger---for more details, please see \citeds{LSE-63}).
-A database of objects detected on difference images will be updated nightly and available through the Rubin Science Platform (RSP).
+Nightly alert packets will be produced and streamed to community brokers at the 60 sec cadence (design specification, the minimum requirement is 120 sec), including postage stamps of size $32 \times 32$ pixels ($6.4 \times 6.4$ sq.\ \gls{arcsec}, or larger---for more details, please see \citeds{LSE-63}).
+A database of objects detected on difference images will be updated nightly and available through the Rubin Science Platform (\gls{RSP}).
 Following guidance from the funding agencies, full frame (3.2 Gpix) images in all three flavors (raw, calibrated, and difference), will be made available 80 hours after they were obtained.
 A small fraction of the total of all images obtained may be held longer than 80 hr and a mechanism for extending embargo periods for certain images at the request of the funding agencies will be implemented.
 Rubin has consulted with scientists in the community and determined that the policy directive for this 80 hour delay will not significantly impact most science investigations.
-Additionally no prompt alerts will be issues for sources corresponding to objects in an appropriate satellite catalog. And no prompt alerts for streaks greater than 10 deg/day relative to sidereal
+Additionally no prompt alerts will be issues for sources corresponding to objects in an appropriate satellite catalog. And no prompt alerts for streaks greater than 10 \gls{deg}/day relative to sidereal
 The exclusion of prompt alerts for these streaks will have minimal impact on science.
-In the rare event an unknown solar system object source with a streak length greater than 10 deg/day relative to sidereal potentially corresponds with ans earth impacting asteroid, the \gls{USDF} will implement a method to send any candidate impactors to the \gls{MPC} during the embargo period.
+In the rare event an unknown solar system object source with a streak length greater than 10 \gls{deg}/day relative to sidereal potentially corresponds with ans earth impacting asteroid, the \gls{USDF} will implement a method to send any candidate impactors to the \gls{MPC} during the embargo period.
 All data in transit shall comply with the strong, approved encryption standards outlined for the embargo period.
 
 In addition, commissioning and engineering data will be embargoed for all non-commissioning team staff for 30 days.
-After this 30 day embargo, only with explicit approval may proprietary data products from commissioning be shared outside the Commissioning Team   \citeds{SITCOMTN-010}.
+After this 30 day embargo, only with explicit approval may proprietary data products from commissioning be shared outside the \gls{Commissioning} Team   \citeds{SITCOMTN-010}.
 
-Commissioning Team members are expected to use approved Project tools and processes for communication, data access and analysis, documentation, software development, work management, etc.
-In practice, we expect most work done by the Commissioning Team on the commissioning data to be done within private directories at the Rubin US Data Facility at SLAC.
+Commissioning Team members are expected to use approved Project tools and processes for communication, data access and analysis, documentation, \gls{software} development, work management, etc.
+In practice, we expect most work done by the \gls{Commissioning} Team on the commissioning data to be done within private directories at the Rubin US Data Facility at SLAC.
 
-Appropriate data and data products from commissioning will be assembled in data previews  and released to the community within about 6 months of the end of the associated phase of commissioning (e.g, DP1 will be released approximately 6 months after the ComCam observations are completed).
-It is expected that a data preview based on science validation survey data from the ultimate phase of LSST Cam commissioning (about 2 months of Science Validation Surveys) will be made available early in full survey operations, before the first data release processing begins.
+Appropriate data and data products from commissioning will be assembled in data previews  and released to the community within about 6 months of the end of the associated phase of commissioning (e.g, DP1 will be released approximately 6 months after the \gls{ComCam} observations are completed).
+It is expected that a data preview based on science validation survey data from the ultimate phase of LSST Cam commissioning (about 2 months of Science \gls{Validation} Surveys) will be made available early in full survey operations, before the first data release processing begins.
 
 As per \citeds{SITCOMTN-010}, Rubin will define a process to approve the sharing of {\it derived data products} (see the Rubin Data Policy, \citeds{RDO-013}) based on commissioning data with the data rights holder community prior to the associated data preview release.
-This is needed to enable the LSST science community to begin learning about Rubin data in preparation for their survey analyses.
+This is needed to enable the \gls{LSST} science community to begin learning about Rubin data in preparation for their survey analyses.
 
 Survey data releases including coadded images and updated source photometry will begin about one year after the start of the full survey.
-Our current plan is to acquire six months of data for the first formal LSST data release.
-Alert production will reach its full throughput and steady-state efficiency after Data Release 1; during the first survey year, alerts will be produced incrementally once adequate image templates are available (for more details, please see \citeds{DMTN-107}).
+Our current plan is to acquire six months of data for the first formal \gls{LSST} data release.
+Alert production will reach its full throughput and steady-state efficiency after \gls{Data Release} 1; during the first survey year, alerts will be produced incrementally once adequate image templates are available (for more details, please see \citeds{DMTN-107}).
