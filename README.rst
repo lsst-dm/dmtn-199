@@ -34,7 +34,7 @@ Updating acronyms
 -----------------
 
 A table of the technote's acronyms and their definitions are maintained in the ``acronyms.tex`` file, which is committed as part of this repository.
-To update the acronyms table in ``agloassry.tex``::
+To update the acronyms table in ``aglossary.tex``::
 
     make aglossary.tex
 
