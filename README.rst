@@ -11,8 +11,8 @@ Implementation of Rubin data security standards.
 Links
 =====
 
-- Live drafts: https://dmtn-199.lsst.io
-- GitHub: https://github.com/lsst-dm/dmtn-199
+- Live drafts: in github.
+- GitHub: https://github.com/rubin-observatory/dmtn-199
 
 Build
 =====
@@ -34,9 +34,9 @@ Updating acronyms
 -----------------
 
 A table of the technote's acronyms and their definitions are maintained in the ``acronyms.tex`` file, which is committed as part of this repository.
-To update the acronyms table in ``acronyms.tex``::
+To update the acronyms table in ``aglossary.tex``::
 
-    make acronyms.tex
+    make aglossary.tex
 
 *Note: this command requires that this repository was cloned as a submodule.*
 
