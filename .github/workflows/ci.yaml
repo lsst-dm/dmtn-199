@@ -32,11 +32,10 @@ jobs:
       - name: TeX build
         run: |
           docker run --rm -v `pwd`:/workspace -w /workspace lsstsqre/lsst-texmf:latest sh -c 'make tables DMTN-199.pdf'
-
-      - name: No landing page - just put the pdf in github
+      - name: Landing page upload
         if: ${{ github.event_name == 'push' }}
+        env:
+          LTD_PASSWORD: ${{ secrets.LTD_PASSWORD }}
+          LTD_USERNAME: ${{ secrets.LTD_USERNAME }}
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git commit -m " Build of doc from github action " DMTN-199.pdf tables
-          git push
+          lander --upload --pdf DMTN-199.pdf --lsstdoc DMTN-199.tex --ltd-product dmtn-199
