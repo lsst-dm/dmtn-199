@@ -3,7 +3,7 @@ DOCNUMBER = 199
 DOCNAME = $(DOCTYPE)-$(DOCNUMBER)
 GSHEET = 1o1jbFP6tHSAzvg_OsNI0-qmzIIQGbe2_rjjM94xic8w
 
-tex = $(filter-out $(wildcard *acronyms.tex) , $(wildcard *.tex */*tex))
+tex = $(filter-out $(wildcard *aglossary.tex) , $(wildcard *.tex */*tex))
 
 GITVERSION := $(shell git log -1 --date=short --pretty=%h)
 GITDATE := $(shell git log -1 --date=short --pretty=%ad)
@@ -15,7 +15,7 @@ endif
 export TEXMFHOME ?= lsst-texmf/texmf
 
 # Add aglossary.tex as a dependancy here if you want a glossary (and remove acronyms.tex)
-$(DOCNAME).pdf: $(tex) meta.tex local.bib acronyms.tex aglossary.tex
+$(DOCNAME).pdf: $(tex) meta.tex local.bib aglossary.tex
 	xelatex  $(DOCNAME).tex
 	bibtex  $(DOCNAME)
 	xelatex  $(DOCNAME).tex
